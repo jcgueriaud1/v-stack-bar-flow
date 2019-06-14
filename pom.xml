@@ -3,7 +3,7 @@
 
     <groupId>org.vaadin.jeanchristophe</groupId>
     <artifactId>vstackbarflow</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <name>VStackBarFlow</name>
     <description>Integration of v-stack-bar for Vaadin platform</description>
 

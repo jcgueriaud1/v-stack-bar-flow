@@ -14,7 +14,7 @@ public class DemoView extends VerticalLayout {
         VStackBar stackBar2 = new VStackBar();
         stackBar2.setBars(10,2,3,5);
         stackBar2.setDescriptions("First description","Second description","Third description","Last description");
-        stackBar2.setTheme("lumo-success");
+        stackBar2.setThemeName("lumo-success");
         add(stackBar2);
         VStackBar stackBar3 = new VStackBar();
         stackBar3.setBars(2,0,3,5);

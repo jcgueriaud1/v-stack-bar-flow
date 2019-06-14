@@ -1,22 +1,19 @@
 package org.vaadin.jchristophe.stackbar;
 
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.HasTheme;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
-import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
-import com.vaadin.flow.templatemodel.TemplateModel;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.vaadin.flow.internal.JsonSerializer;
 
 /**
  * Stack bar for Vaadin
  */
 @Tag("v-stack-bar")
-@NpmPackage(value="@jcgueriaud/v-stack-bar",version = "1.2.3")
+@NpmPackage(value="@jcgueriaud/v-stack-bar",version = "1.2.5")
 @JsModule("@jcgueriaud/v-stack-bar/src/v-stack-bar.js")
-public class VStackBar extends PolymerTemplate<VStackBar.StackBarModel> {
+public class VStackBar extends Component implements HasTheme {
 
     /**
      * Creates a new StackBar.
@@ -27,38 +24,31 @@ public class VStackBar extends PolymerTemplate<VStackBar.StackBarModel> {
     }
 
     public void setThemeVariant(VStackBarVariant theme) {
-        getElement().setAttribute("theme", theme.getVariantName());
-    }
-    public void setTheme(String theme) {
-        getElement().setAttribute("theme", theme);
+        setThemeName(theme.getVariantName());
     }
 
     public void setBars(int... bars){
-        getModel().setBars(Arrays.stream(bars).boxed().collect(Collectors.toList()));
+        getElement().setPropertyJson("bars",JsonSerializer.toJson(bars));
     }
 
     public void setColors(String... colors)
     {
-        getModel().setColors(Arrays.asList(colors));
-
-    }
-    public void setBackgroundColors(String... backgroundColors){
-        getModel().setBackgroundColors(Arrays.asList(backgroundColors));
-    }
-
-    public void setDescriptions(String... descriptions) {
-        getModel().setDescriptions(Arrays.asList(descriptions));
+        getElement().setPropertyJson("colors",JsonSerializer.toJson(colors));
     }
 
     /**
-     * This model binds properties between StackBar and stack-bar
+     *
+     * @param backgroundColors
      */
-    public interface StackBarModel extends TemplateModel {
-        // Add setters and getters for template properties here.
+    public void setBackgroundColors(String... backgroundColors){
+        getElement().setPropertyJson("backgroundColors",JsonSerializer.toJson(backgroundColors));
+    }
 
-        void setBars(List<Integer> bars);
-        void setBackgroundColors(List<String> backgroundColors);
-        void setColors(List<String> colors);
-        void setDescriptions(List<String> descriptions);
+    /**
+     *
+     * @param descriptions
+     */
+    public void setDescriptions(String... descriptions) {
+        getElement().setPropertyJson("descriptions",JsonSerializer.toJson(descriptions));
     }
 }
