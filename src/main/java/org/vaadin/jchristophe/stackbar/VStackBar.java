@@ -19,8 +19,6 @@ public class VStackBar extends Component implements HasTheme {
      * Creates a new StackBar.
      */
     public VStackBar() {
-        setColors("var(--stack-color-1)","var(--stack-color-2)","var(--stack-color-3)","var(--stack-color-4)");
-        setBackgroundColors("var(--stack-background-color-1)","var(--stack-background-color-2)","var(--stack-background-color-3)","var(--stack-background-color-4)");
     }
 
     public void setThemeVariant(VStackBarVariant theme) {
