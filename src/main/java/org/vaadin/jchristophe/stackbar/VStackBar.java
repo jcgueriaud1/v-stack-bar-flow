@@ -11,7 +11,7 @@ import com.vaadin.flow.internal.JsonSerializer;
  * Stack bar for Vaadin
  */
 @Tag("v-stack-bar")
-@NpmPackage(value="@jcgueriaud/v-stack-bar",version = "1.2.5")
+@NpmPackage(value="@jcgueriaud/v-stack-bar",version = "1.2.7")
 @JsModule("@jcgueriaud/v-stack-bar/src/v-stack-bar.js")
 public class VStackBar extends Component implements HasTheme {
 
